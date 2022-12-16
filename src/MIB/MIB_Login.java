@@ -4,9 +4,14 @@
  */
 package MIB;
 
-import com.sun.jdi.connect.spi.Connection;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.SQLException; 
+
 
 /**
  *
@@ -19,7 +24,9 @@ public class MIB_Login extends javax.swing.JFrame {
      */
     public MIB_Login() {
         initComponents();
-    }
+        
+        
+          }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,13 +126,18 @@ public class MIB_Login extends javax.swing.JFrame {
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
         
+        
         var username = AnvändarnamnText.getText();
         var password = LösenordText.getPassword();
         try
         {
-            class.forName(com.mysql.cj.jdbc.Driver);
-            connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
-            ResultSet rs =smnt.executeQuery("SELECT * from Agent where Agent_ID ='"+username"')
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb", "mibdba", "");
+            ResultSet rs = smt.executeQuery("SELECT * from Agent where Agent_ID ='"+username);
+        }
+        catch(Exception e)
+        {
+            
         }
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
