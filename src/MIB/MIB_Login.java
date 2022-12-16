@@ -100,10 +100,14 @@ public class MIB_Login extends javax.swing.JFrame {
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
         // TODO add your handling code here:
+        String username=AnvändarnamnText.getText(); 
+        String password= LösenordText.getText(); 
+        
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
     private void LösenordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LösenordTextActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_LösenordTextActionPerformed
 
     private void AnvändarnamnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnvändarnamnTextActionPerformed
