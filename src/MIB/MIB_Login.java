@@ -4,6 +4,9 @@
  */
 package MIB;
 
+import com.sun.jdi.connect.spi.Connection;
+import oru.inf.InfDB;
+
 /**
  *
  * @author atacankais
@@ -102,6 +105,8 @@ public class MIB_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String username=AnvändarnamnText.getText(); 
         String password= LösenordText.getText(); 
+        Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb",
+               "mibdba", "mibkey");
         
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
