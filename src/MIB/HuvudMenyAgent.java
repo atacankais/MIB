@@ -41,7 +41,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Nyregistrera alien");
+        jButton1.setText("Registrera ny alien");
 
         jButton2.setText("Ändra alieninformation");
 
