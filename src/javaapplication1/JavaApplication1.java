@@ -16,7 +16,6 @@ public class JavaApplication1 {
 
 private static InfDB idb;
 public static void main (String[]args) throws InfException {
-    System.out.println("hi");
 try{
 idb = new InfDB ("mibdb", "3306","mibdba", "mibkey"); 
 }
