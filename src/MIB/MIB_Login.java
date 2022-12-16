@@ -36,6 +36,7 @@ public class MIB_Login extends javax.swing.JFrame {
         AnvändarnamnText = new javax.swing.JTextField();
         Användarnamn = new javax.swing.JLabel();
         Lösenord = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -69,6 +70,9 @@ public class MIB_Login extends javax.swing.JFrame {
 
         Lösenord.setText("Lösenord:");
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel2.setText("Inloggning");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,11 +91,17 @@ public class MIB_Login extends javax.swing.JFrame {
                     .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                     .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(93, 93, 93))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AnvändarnamnText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Användarnamn))
@@ -108,7 +118,10 @@ public class MIB_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
-    
+        try
+        {
+            class.forName(com.)
+        }
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
     private void LösenordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LösenordTextActionPerformed
@@ -175,5 +188,6 @@ public class MIB_Login extends javax.swing.JFrame {
     private javax.swing.JLabel Lösenord;
     private javax.swing.JPasswordField LösenordText;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
