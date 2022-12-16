@@ -118,9 +118,14 @@ public class MIB_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
+        
+        var username = AnvändarnamnText.getText();
+        var password = LösenordText.getPassword();
         try
         {
-            class.forName(com.)
+            class.forName(com.mysql.cj.jdbc.Driver);
+            connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
+            ResultSet rs =smnt.executeQuery("SELECT * from Agent where Agent_ID ='"+username"')
         }
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
