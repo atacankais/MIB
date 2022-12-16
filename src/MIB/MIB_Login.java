@@ -5,6 +5,7 @@
 package MIB;
 
 import com.sun.jdi.connect.spi.Connection;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 /**
@@ -47,6 +48,11 @@ public class MIB_Login extends javax.swing.JFrame {
         });
 
         LoggaInButton.setText("Logga in");
+        LoggaInButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LoggaInButtonMouseClicked(evt);
+            }
+        });
         LoggaInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoggaInButtonActionPerformed(evt);
@@ -102,12 +108,7 @@ public class MIB_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
-        // TODO add your handling code here:
-        String username=AnvändarnamnText.getText(); 
-        String password= LösenordText.getText(); 
-        Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb",
-               "mibdba", "mibkey");
-        
+    
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
     private void LösenordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LösenordTextActionPerformed
@@ -118,6 +119,19 @@ public class MIB_Login extends javax.swing.JFrame {
     private void AnvändarnamnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnvändarnamnTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AnvändarnamnTextActionPerformed
+
+    private void LoggaInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoggaInButtonMouseClicked
+        String lösenord = new String(LösenordText.getPassword());
+        if(AnvändarnamnText.getText().equals("user") && lösenord.equals("pass") )
+        {
+            JOptionPane.showMessageDialog(null, "Inloggning lyckades");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Inloggning misslyckades");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoggaInButtonMouseClicked
 
     /**
      * @param args the command line arguments
