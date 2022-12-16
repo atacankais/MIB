@@ -26,21 +26,89 @@ public class MIB_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        LösenordText = new javax.swing.JPasswordField();
+        LoggaInButton = new javax.swing.JButton();
+        AnvändarnamnText = new javax.swing.JTextField();
+        Användarnamn = new javax.swing.JLabel();
+        Lösenord = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        LösenordText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LösenordTextActionPerformed(evt);
+            }
+        });
+
+        LoggaInButton.setText("Logga in");
+        LoggaInButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoggaInButtonActionPerformed(evt);
+            }
+        });
+
+        AnvändarnamnText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnvändarnamnTextActionPerformed(evt);
+            }
+        });
+
+        Användarnamn.setText("Användarnamn:");
+
+        Lösenord.setText("Lösenord:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LoggaInButton)
+                .addGap(135, 135, 135))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Användarnamn)
+                    .addComponent(Lösenord))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AnvändarnamnText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Användarnamn))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LösenordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lösenord))
+                .addGap(28, 28, 28)
+                .addComponent(LoggaInButton)
+                .addGap(78, 78, 78))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoggaInButtonActionPerformed
+
+    private void LösenordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LösenordTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LösenordTextActionPerformed
+
+    private void AnvändarnamnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnvändarnamnTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnvändarnamnTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +146,11 @@ public class MIB_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Användarnamn;
+    private javax.swing.JTextField AnvändarnamnText;
+    private javax.swing.JButton LoggaInButton;
+    private javax.swing.JLabel Lösenord;
+    private javax.swing.JPasswordField LösenordText;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
