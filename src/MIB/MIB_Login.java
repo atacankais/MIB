@@ -149,7 +149,13 @@ public class MIB_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AnvändarnamnTextActionPerformed
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
-        // TODO add your handling code here:
+        
+        String användarnamn = AnvändarnamnText.getText();
+        String lösenord = LösenordText.getText();
+        
+        
+        if(agentbox.isSelected()){
+           // TODO add your handling code here:
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
     /**
