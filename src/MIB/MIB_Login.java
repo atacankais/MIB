@@ -4,6 +4,7 @@
  */
 package MIB;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException; 
@@ -14,14 +15,23 @@ import oru.inf.InfException;
  * @author atacankais
  */
 public class MIB_Login extends javax.swing.JFrame {
+     private static InfDB IDB;
 
     /**
      * Creates new form MIB_Login
      */
-    public MIB_Login() {
-        initComponents();
+    public MIB_Login( InfDB IDB) {
+     this.IDB=IDB;
+       initComponents();
+  
         
           }
+
+    private MIB_Login() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,13 +163,28 @@ public class MIB_Login extends javax.swing.JFrame {
         String användarnamn = AnvändarnamnText.getText();
         String lösenord = LösenordText.getText();
         
+        try{
+            användarnamn= IDB.fetchSingle("SELECT * FROM agent where Namn ='" + användarnamn + "'");
+             lösenord= IDB.fetchSingle("SELECT * FROM agent where Losenord  ='" +  lösenord+"'");
+             
+             
+                System.out.println("welocome");
+             
+        }
+        
+       catch (InfException ex){
+        
+          JOptionPane.showMessageDialog(null, " något gick fel, try again ");
+         
+          
+        System.out.println("oppsss");}
         
         if(agentbox.isSelected()){
             
-        }
-           // TODO add your handling code here:
+        
+          // TODO add your handling code here:
     }//GEN-LAST:event_LoggaInButtonActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -186,12 +211,15 @@ public class MIB_Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MIB_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MIB_Login().setVisible(true);
+          //  new MIB_Login().setVisible(true);
+           
             }
+
+           
         });
     }
 
@@ -207,4 +235,12 @@ public class MIB_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+   // private MIB_Login() {
+   //     throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   // }
+
+   // private MIB_Login() {
+    //    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   // }
 }
