@@ -155,6 +155,8 @@ public class MIB_Login extends javax.swing.JFrame {
         
         
         if(agentbox.isSelected()){
+            
+        }
            // TODO add your handling code here:
     }//GEN-LAST:event_LoggaInButtonActionPerformed
 
