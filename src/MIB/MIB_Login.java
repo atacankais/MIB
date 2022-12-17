@@ -39,6 +39,9 @@ public class MIB_Login extends javax.swing.JFrame {
         Användarnamn = new javax.swing.JLabel();
         Lösenord = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        adminbox = new javax.swing.JCheckBox();
+        agentbox = new javax.swing.JCheckBox();
+        alienbox = new javax.swing.JCheckBox();
 
         jLabel1.setText("jLabel1");
 
@@ -50,7 +53,13 @@ public class MIB_Login extends javax.swing.JFrame {
             }
         });
 
+        LoggaInButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         LoggaInButton.setText("Logga in");
+        LoggaInButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoggaInButtonActionPerformed(evt);
+            }
+        });
 
         AnvändarnamnText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,43 +74,66 @@ public class MIB_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel2.setText("Inloggning");
 
+        adminbox.setText("Admin");
+
+        agentbox.setText("Agent");
+
+        alienbox.setText("Alien");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LoggaInButton)
-                .addGap(135, 135, 135))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Användarnamn)
-                    .addComponent(Lösenord))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                        .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(93, 93, 93))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Användarnamn)
+                            .addComponent(Lösenord))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(93, 93, 93))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(adminbox)
+                                .addGap(66, 66, 66)
+                                .addComponent(agentbox)
+                                .addGap(54, 54, 54)
+                                .addComponent(alienbox)))
+                        .addContainerGap(76, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AnvändarnamnText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Användarnamn))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LösenordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lösenord))
-                .addGap(28, 28, 28)
-                .addComponent(LoggaInButton)
-                .addGap(78, 78, 78))
+                    .addComponent(Lösenord)
+                    .addComponent(LösenordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alienbox)
+                    .addComponent(agentbox)
+                    .addComponent(adminbox))
+                .addGap(18, 18, 18)
+                .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         pack();
@@ -115,6 +147,10 @@ public class MIB_Login extends javax.swing.JFrame {
     private void AnvändarnamnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnvändarnamnTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AnvändarnamnTextActionPerformed
+
+    private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoggaInButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +193,9 @@ public class MIB_Login extends javax.swing.JFrame {
     private javax.swing.JButton LoggaInButton;
     private javax.swing.JLabel Lösenord;
     private javax.swing.JPasswordField LösenordText;
+    private javax.swing.JCheckBox adminbox;
+    private javax.swing.JCheckBox agentbox;
+    private javax.swing.JCheckBox alienbox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
