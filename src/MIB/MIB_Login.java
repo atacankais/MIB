@@ -171,7 +171,7 @@ public class MIB_Login extends javax.swing.JFrame {
         
        catch (InfException ex){
         
-          JOptionPane.showMessageDialog(null, "Något gick fel, vänlig försök igen ");
+          JOptionPane.showMessageDialog(null, " Något gick fel, vänligen försök igen ");
          
           
         System.out.println("oppsss");}
