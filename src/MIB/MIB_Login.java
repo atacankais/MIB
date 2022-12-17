@@ -6,11 +6,7 @@ package MIB;
 
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException; 
+import oru.inf.InfException; 
 
 
 /**
@@ -24,7 +20,6 @@ public class MIB_Login extends javax.swing.JFrame {
      */
     public MIB_Login() {
         initComponents();
-        
         
           }
 
@@ -56,16 +51,6 @@ public class MIB_Login extends javax.swing.JFrame {
         });
 
         LoggaInButton.setText("Logga in");
-        LoggaInButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoggaInButtonMouseClicked(evt);
-            }
-        });
-        LoggaInButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoggaInButtonActionPerformed(evt);
-            }
-        });
 
         AnvändarnamnText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,14 +79,12 @@ public class MIB_Login extends javax.swing.JFrame {
                     .addComponent(Användarnamn)
                     .addComponent(Lösenord))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                    .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                        .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(93, 93, 93))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,23 +107,6 @@ public class MIB_Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
-        
-        
-        var username = AnvändarnamnText.getText();
-        var password = LösenordText.getPassword();
-        try
-        {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb", "mibdba", "");
-            ResultSet rs = smt.executeQuery("SELECT * from Agent where Agent_ID ='"+username);
-        }
-        catch(Exception e)
-        {
-            
-        }
-    }//GEN-LAST:event_LoggaInButtonActionPerformed
-
     private void LösenordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LösenordTextActionPerformed
         // TODO add your handling code here:
         
@@ -149,19 +115,6 @@ public class MIB_Login extends javax.swing.JFrame {
     private void AnvändarnamnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnvändarnamnTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AnvändarnamnTextActionPerformed
-
-    private void LoggaInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoggaInButtonMouseClicked
-        String lösenord = new String(LösenordText.getPassword());
-        if(AnvändarnamnText.getText().equals("user") && lösenord.equals("pass") )
-        {
-            JOptionPane.showMessageDialog(null, "Inloggning lyckades");
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Inloggning misslyckades");
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoggaInButtonMouseClicked
 
     /**
      * @param args the command line arguments
