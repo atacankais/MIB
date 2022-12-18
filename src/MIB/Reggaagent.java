@@ -18,9 +18,21 @@ public class Reggaagent extends javax.swing.JFrame {
     /**
      * Creates new form Reggaagent
      */
-    public Reggaagent( InfDB db) {
-        this.db=db;
+    public Reggaagent( ) {
+       // this.db=db;
         initComponents();
+        
+         try {
+            db = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            
+        }
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -168,7 +180,7 @@ public class Reggaagent extends javax.swing.JFrame {
      
       // här registerar jag en agent i databasen med hjälp av insert och använder en variable som kallas för 
      // INsert för att spara värden i. 
-     String INsert = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
+     String INsert = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade) VALUES("
              + Agentid.getText() + ", '"
              + agentnamn.getText() + "', '"
              + telefon.getText() + "', '"
@@ -184,7 +196,7 @@ public class Reggaagent extends javax.swing.JFrame {
       String Notadmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + agentnamn.getText() + "'";
       // Här använder jag String för at uppderar agenten om användaren skriver "N" vilket innebär att agent kommer inte 
       // registeras som admin 
-     if ( admin.getSelectedText().equals("J")){  // här använder jag if statemetn och kollar om användare skriver "J" 
+     if ( admin.getText().equals("J")){  // här använder jag if statemetn och kollar om användare skriver "J" 
          // DÅ blir agenten administratör direkt 
          try {
              db.fetchSingle(INsert);
@@ -252,7 +264,7 @@ public class Reggaagent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-             //   new Reggaagent().setVisible(true);
+                new Reggaagent().setVisible(true);
             }
         });
     }

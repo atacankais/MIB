@@ -18,10 +18,20 @@ private static InfDB db;
     /**
      * Creates new form Deleteagentfromsystemet
      */
-    public Deleteagentfromsystemet( InfDB db) {
-        this.db=db; 
-        initComponents();
+    public Deleteagentfromsystemet( ) {
+      
+       initComponents();
+        
+        
+        
+              
+        try {
+            db = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            
+        }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,7 +145,7 @@ private static InfDB db;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              //  new Deleteagentfromsystemet().setVisible(true);
+              new Deleteagentfromsystemet().setVisible(true);
             }
         });
     }
