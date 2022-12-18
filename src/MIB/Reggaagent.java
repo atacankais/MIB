@@ -168,7 +168,7 @@ public class Reggaagent extends javax.swing.JFrame {
      
       // här registerar jag en agent i databasen med hjälp av insert och använder en variable som kallas för 
      // INsert för att spara värden i. 
-     String INsert = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Lösenord, Omrade) VALUES("
+     String INsert = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
              + Agentid.getText() + ", '"
              + agentnamn.getText() + "', '"
              + telefon.getText() + "', '"
