@@ -117,7 +117,7 @@ private static InfDB db;
                                     .addComponent(Gammallösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Nylösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
+                        .addGap(137, 137, 137)
                         .addComponent(jButton1)))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
