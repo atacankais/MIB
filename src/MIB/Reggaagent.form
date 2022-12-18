@@ -168,9 +168,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Agentid">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="agentnamn">
     </Component>
@@ -179,9 +176,6 @@
     <Component class="javax.swing.JTextField" name="anst&#xe4;llningsdatum">
     </Component>
     <Component class="javax.swing.JTextField" name="admin">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="J ELLER N"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="l&#xf6;senord">
     </Component>

@@ -47,14 +47,14 @@ public class Deletealienfromsystemet extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        alienid = new javax.swing.JTextField();
+        aliennamn = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Ange Alien-ID ");
 
-        jLabel2.setText("Alien-ID");
+        jLabel2.setText("Alien-Namn");
 
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class Deletealienfromsystemet extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                            .addComponent(alienid))))
+                            .addComponent(aliennamn))))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -89,7 +89,7 @@ public class Deletealienfromsystemet extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alienid, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aliennamn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -104,14 +104,14 @@ public class Deletealienfromsystemet extends javax.swing.JFrame {
         
       
          try {
-          String AlienID= alienid.getText();     
+          String AlienNAMN= aliennamn.getText();     
         
-        String Question= " SELECT Alien_ID FROM ALIEN WHERE Alien_ID='"+alienid+"'";
+        String Question= " SELECT * FROM ALIEN WHERE NAMN='"+aliennamn+"'";
          
-             String gettingthealienid= db.fetchSingle(Question);
+             String gettingthealienNAMN= db.fetchSingle(Question);
              
              
-             String deletealien= " DELETE FROM ALIEN WHERE Alien_ID= '"+alienid+"'";
+             String deletealien= " DELETE FROM ALIEN WHERE NAMN= '"+aliennamn+"'";
              String complatedelete=db.fetchSingle(deletealien);
              System.out.println(" en alien har tagits bort från systemet"+ complatedelete);
          } catch (InfException ex) {
@@ -199,7 +199,7 @@ public class Deletealienfromsystemet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField alienid;
+    private javax.swing.JTextField aliennamn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

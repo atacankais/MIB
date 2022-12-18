@@ -79,10 +79,6 @@ public class Reggaagent extends javax.swing.JFrame {
 
         jLabel8.setText("Område");
 
-        Agentid.setText("jTextField1");
-
-        admin.setText("J ELLER N");
-
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
