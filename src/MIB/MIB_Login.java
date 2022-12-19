@@ -4,6 +4,7 @@
  */
 package MIB;
 
+
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException; 
@@ -41,6 +42,7 @@ public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
         Lösenord = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         test = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +75,17 @@ public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
 
         test.setText("jLabel1");
 
+        jLabel1.setText("jLabel1");
+        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +103,9 @@ public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(180, Short.MAX_VALUE)
                 .addComponent(test)
-                .addGap(178, 178, 178))
+                .addGap(102, 102, 102)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34))
             .addGroup(layout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +127,9 @@ public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
                     .addComponent(Lösenord)
                     .addComponent(LösenordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(test)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(test)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
@@ -143,6 +160,10 @@ public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
        catch (InfException | NullPointerException e) {
                     JOptionPane.showMessageDialog(null, "Något gick fel! Kontrollera användar-ID och Lösenord.");
     }//GEN-LAST:event_LoggaInButtonActionPerformed
+
+    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1AncestorAdded
     }
     /**
      * @param args the command line arguments
@@ -185,6 +206,7 @@ public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
     private javax.swing.JButton LoggaInButton;
     private javax.swing.JLabel Lösenord;
     private javax.swing.JPasswordField LösenordText;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel test;
     // End of variables declaration//GEN-END:variables
