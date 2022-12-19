@@ -54,13 +54,13 @@ public class Changeagentinformation extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Välja en agent");
+        jLabel1.setText("Välja en agent:");
 
-        jLabel2.setText("Namn ");
+        jLabel2.setText("Namn:");
 
-        jLabel3.setText("Tel.NO");
+        jLabel3.setText("Tel.NO:");
 
-        jLabel4.setText("Område");
+        jLabel4.setText("Område:");
 
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

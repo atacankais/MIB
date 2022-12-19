@@ -117,22 +117,22 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lja en agent"/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lja en agent:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Namn "/>
+        <Property name="text" type="java.lang.String" value="Namn:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tel.NO"/>
+        <Property name="text" type="java.lang.String" value="Tel.NO:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Omr&#xe5;de"/>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;de:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="agent">
