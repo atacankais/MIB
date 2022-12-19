@@ -8,13 +8,11 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException; 
 
-
-
 /**
  *
  * @author atacankais
  */
-public class MIB_Login extends javax.swing.JFrame {
+public class MIB_Login extends javax.swing.JFrame {     //Konstruktor
      private static InfDB idb;
 
     /**
@@ -26,8 +24,6 @@ public class MIB_Login extends javax.swing.JFrame {
         this.idb = idb;
 
     }
-
-  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,11 +190,4 @@ public class MIB_Login extends javax.swing.JFrame {
     private javax.swing.JLabel test;
     // End of variables declaration//GEN-END:variables
 
-   // private MIB_Login() {
-   //     throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-   // }
-
-   // private MIB_Login() {
-    //    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-   // }
 }
