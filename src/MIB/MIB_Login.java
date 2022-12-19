@@ -19,17 +19,21 @@ public class MIB_Login extends javax.swing.JFrame {
 
     /**
      * Creates new form MIB_Login
+     * @param IDB
      */
-    public MIB_Login( InfDB IDB) {
-     this.IDB=IDB;
+    public MIB_Login() {
        initComponents();
-  
-        
+              try{
+          IDB = new InfDB("/Users/atacankais/NetBeansProjects/MIB/Databasfiler/InfDB.jar");
+        }
+        catch(InfException ettUndantag){
+            
+        JOptionPane.showMessageDialog(null, "Sökväg till databasen hittades inte!");
+        System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        }
+               
           }
 
-    private MIB_Login() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
   
 
@@ -42,18 +46,12 @@ public class MIB_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         LösenordText = new javax.swing.JPasswordField();
         LoggaInButton = new javax.swing.JButton();
         AnvändarnamnText = new javax.swing.JTextField();
         Användarnamn = new javax.swing.JLabel();
         Lösenord = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        adminbox = new javax.swing.JCheckBox();
-        agentbox = new javax.swing.JCheckBox();
-        alienbox = new javax.swing.JCheckBox();
-
-        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,12 +82,6 @@ public class MIB_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel2.setText("Inloggning");
 
-        adminbox.setText("Admin");
-
-        agentbox.setText("Agent");
-
-        alienbox.setText("Alien");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,22 +89,13 @@ public class MIB_Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(adminbox)
-                        .addGap(75, 75, 75)
-                        .addComponent(agentbox)
-                        .addGap(60, 60, 60)
-                        .addComponent(alienbox)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Användarnamn)
-                            .addComponent(Lösenord))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                            .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(93, 93, 93))))
+                    .addComponent(Användarnamn)
+                    .addComponent(Lösenord))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(LösenordText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(AnvändarnamnText, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(93, 93, 93))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,12 +116,7 @@ public class MIB_Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lösenord)
                     .addComponent(LösenordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alienbox)
-                    .addComponent(agentbox)
-                    .addComponent(adminbox))
-                .addGap(18, 18, 18)
+                .addGap(71, 71, 71)
                 .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -156,30 +134,19 @@ public class MIB_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AnvändarnamnTextActionPerformed
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
-        
-        String användarnamn = AnvändarnamnText.getText();
+            String användarnamn = AnvändarnamnText.getText();
         String lösenord = LösenordText.getText();
         
         try{
-            användarnamn= IDB.fetchSingle("SELECT * FROM agent where Namn ='" + användarnamn + "'");
-             lösenord= IDB.fetchSingle("SELECT * FROM agent where Losenord  ='" +  lösenord+"'");
-             
-             
-                System.out.println("Välkommen");
-             
+            String inloggFråga= IDB.fetchSingle("SELECT * FROM Agent where Namn ='" + användarnamn + "' and Losenord ='" + lösenord +"'");             
+                     
         }
         
        catch (InfException ex){
         
-          JOptionPane.showMessageDialog(null, " Något gick fel, vänligen försök igen ");
-         
-          
-        System.out.println("oppsss");}
-        
-        if(agentbox.isSelected()){
-            
-        
-          // TODO add your handling code here:
+          JOptionPane.showMessageDialog(null, " Något gick fel, vänligen försök igen "); 
+          System.out.println("Nått gick fel");
+   
     }//GEN-LAST:event_LoggaInButtonActionPerformed
     }
     /**
@@ -199,24 +166,21 @@ public class MIB_Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MIB_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MIB_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MIB_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MIB_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-       
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-          //  new MIB_Login().setVisible(true);
-           
+                new MIB_Login().setVisible(true);
             }
-
-           
         });
     }
 
@@ -226,10 +190,6 @@ public class MIB_Login extends javax.swing.JFrame {
     private javax.swing.JButton LoggaInButton;
     private javax.swing.JLabel Lösenord;
     private javax.swing.JPasswordField LösenordText;
-    private javax.swing.JCheckBox adminbox;
-    private javax.swing.JCheckBox agentbox;
-    private javax.swing.JCheckBox alienbox;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
