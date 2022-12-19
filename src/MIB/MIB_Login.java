@@ -4,10 +4,10 @@
  */
 package MIB;
 
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException; 
+
 
 
 /**
@@ -15,25 +15,17 @@ import oru.inf.InfException;
  * @author atacankais
  */
 public class MIB_Login extends javax.swing.JFrame {
-     private static InfDB IDB;
+     private static InfDB idb;
 
     /**
      * Creates new form MIB_Login
      * @param IDB
      */
-    public MIB_Login(InfDB idb) {
-       initComponents();
-              try{
-          IDB = new InfDB("/Users/atacankais/NetBeansProjects/MIB/Databasfiler/InfDB.jar");
-        }
-        catch(InfException ettUndantag){
-            
-        JOptionPane.showMessageDialog(null, "Sökväg till databasen hittades inte!");
-        System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        }
-               
-          }
+     public MIB_Login(InfDB idb) {
+        initComponents();
+        this.idb = idb;
 
+    }
 
   
 
@@ -52,6 +44,7 @@ public class MIB_Login extends javax.swing.JFrame {
         Användarnamn = new javax.swing.JLabel();
         Lösenord = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        test = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +75,8 @@ public class MIB_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel2.setText("Inloggning");
 
+        test.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,9 +94,14 @@ public class MIB_Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(134, 134, 134))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(134, 134, 134))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(test)
+                        .addGap(178, 178, 178))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +116,9 @@ public class MIB_Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lösenord)
                     .addComponent(LösenordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
+                .addGap(27, 27, 27)
+                .addComponent(test)
+                .addGap(27, 27, 27)
                 .addComponent(LoggaInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -134,19 +136,17 @@ public class MIB_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AnvändarnamnTextActionPerformed
 
     private void LoggaInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInButtonActionPerformed
-            String användarnamn = AnvändarnamnText.getText();
-        String lösenord = LösenordText.getText();
+       String användarnamn = AnvändarnamnText.getText();
+       String lösenord = LösenordText.getText();
         
         try{
-            String inloggFråga= IDB.fetchSingle("SELECT * FROM Agent where Namn ='" + användarnamn + "' and Losenord ='" + lösenord +"'");             
-                     
+            
+          String inloggFråga= idb.fetchSingle("SELECT * FROM Agent where Namn = '" + användarnamn + "' and Losenord = '" + lösenord +"'");   
+
         }
         
-       catch (InfException ex){
-        
-          JOptionPane.showMessageDialog(null, " Något gick fel, vänligen försök igen "); 
-          System.out.println("Nått gick fel");
-   
+       catch (InfException | NullPointerException e) {
+                    JOptionPane.showMessageDialog(null, "Något gick fel! Kontrollera användar-ID och uppkoppling till databas.");
     }//GEN-LAST:event_LoggaInButtonActionPerformed
     }
     /**
@@ -179,8 +179,7 @@ public class MIB_Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MIB_Login(IDB).setVisible(true);
-
+                new MIB_Login(idb).setVisible(true);
             }
         });
     }
@@ -192,6 +191,7 @@ public class MIB_Login extends javax.swing.JFrame {
     private javax.swing.JLabel Lösenord;
     private javax.swing.JPasswordField LösenordText;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel test;
     // End of variables declaration//GEN-END:variables
 
    // private MIB_Login() {

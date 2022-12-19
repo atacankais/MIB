@@ -24,6 +24,7 @@ catch (InfException ex){
 
 Logger.getLogger(JavaApplication1.class.getName()).log(Level.SEVERE,null,ex);
         }
+
 }
 
 }
