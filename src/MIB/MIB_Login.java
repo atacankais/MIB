@@ -146,7 +146,7 @@ public class MIB_Login extends javax.swing.JFrame {
         }
         
        catch (InfException | NullPointerException e) {
-                    JOptionPane.showMessageDialog(null, "Något gick fel! Kontrollera användar-ID och uppkoppling till databas.");
+                    JOptionPane.showMessageDialog(null, "Något gick fel! Kontrollera användar-ID och Lösenord.");
     }//GEN-LAST:event_LoggaInButtonActionPerformed
     }
     /**
