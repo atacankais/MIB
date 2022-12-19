@@ -21,7 +21,7 @@ public class MIB_Login extends javax.swing.JFrame {
      * Creates new form MIB_Login
      * @param IDB
      */
-    public MIB_Login() {
+    public MIB_Login(InfDB idb) {
        initComponents();
               try{
           IDB = new InfDB("/Users/atacankais/NetBeansProjects/MIB/Databasfiler/InfDB.jar");
@@ -179,7 +179,8 @@ public class MIB_Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MIB_Login().setVisible(true);
+                new MIB_Login(IDB).setVisible(true);
+
             }
         });
     }
